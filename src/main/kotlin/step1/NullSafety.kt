@@ -12,18 +12,14 @@ data class User(val name: String?, val nickname: String?)
  * user가 null이거나 name이 null이면 "anonymous"를 반환한다.
  * 그 외에는 name을 반환한다.
  */
-fun displayName(user: User?): String {
-    // TODO: `?.` 와 `?:` 를 조합해 한 줄로 구현하세요.
-    throw NotImplementedError()
-}
+fun displayName(user: User?): String = user?.name ?: "anonymous"
 
 /**
  * nickname이 있으면 "@{nickname}" 형식, 없으면 name, name마저 없으면 "anonymous"를 반환한다.
  */
 fun profileLabel(user: User?): String {
-    // TODO: safe call, elvis 를 활용해 구현하세요.
-    //   - 문자열 템플릿: "@$it"
-    throw NotImplementedError()
+    val label = user?.nickname ?: user?.name ?: "anonymous"
+    return "@$label"
 }
 
 /**
@@ -32,6 +28,5 @@ fun profileLabel(user: User?): String {
  * 입력: ["a", null, "b", null, "c"]  →  ["A", "B", "C"]
  */
 fun upperNonNull(values: List<String?>): List<String> {
-    // TODO: `filterNotNull()` + `map { it.uppercase() }` 로 구현하세요.
-    throw NotImplementedError()
+    return values.filterNotNull().map { it.uppercase() }
 }
