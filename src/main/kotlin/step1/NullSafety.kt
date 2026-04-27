@@ -19,7 +19,7 @@ fun displayName(user: User?): String = user?.name ?: "anonymous"
  */
 fun profileLabel(user: User?): String {
     val label = user?.nickname ?: user?.name ?: "anonymous"
-    return "@$label"
+    return "$label"
 }
 
 /**
