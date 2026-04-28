@@ -12,20 +12,18 @@ data class Waypoint(val lat: Double, val lng: Double, val timestamp: Long)
  * 두 waypoint의 타임스탬프 차이(ms)를 반환한다.
  * 반드시 절댓값으로 반환하라.
  */
-fun durationBetween(a: Waypoint, b: Waypoint): Long {
-    // TODO: kotlin.math.abs 를 사용해 구현하세요.
-    throw NotImplementedError()
-}
+fun durationBetween(a: Waypoint, b: Waypoint): Long =
+    kotlin.math.abs(a.timestamp - b.timestamp)
+
 
 /**
  * 기존 waypoint에서 타임스탬프만 바꾼 새 waypoint를 반환한다.
  *
  * Hint: data class의 `copy()` 를 사용하세요.
  */
-fun withTimestamp(waypoint: Waypoint, newTimestamp: Long): Waypoint {
-    // TODO: waypoint.copy(timestamp = newTimestamp)
-    throw NotImplementedError()
-}
+fun withTimestamp(waypoint: Waypoint, newTimestamp: Long): Waypoint =
+    waypoint.copy(timestamp = newTimestamp)
+
 
 /**
  * waypoint를 "lat,lng@timestamp" 형식 문자열로 변환한다.
@@ -34,6 +32,6 @@ fun withTimestamp(waypoint: Waypoint, newTimestamp: Long): Waypoint {
  *   val (lat, lng, ts) = waypoint
  */
 fun formatWaypoint(waypoint: Waypoint): String {
-    // TODO: 구조분해 + 문자열 템플릿으로 구현
-    throw NotImplementedError()
+    val (lat, lng, timestamp) = waypoint
+    return "$lat,$lng@$timestamp"
 }
